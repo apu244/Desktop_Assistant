@@ -6,25 +6,49 @@ import pyttsx3
 import openai
 import speech_recognition as sr
 from config import apikey
+import random
 
-def chat(task):
-    global chatStr
-    print(chatStr)
-    openai.api_key = apikey
-    chatStr += f"Apurba: {task}\n Jarvis: "
-    response = openai.Completion.create(
-        model="text-davinci-003",
-        prompt=chatStr,
-        temperature=0.7,
-        max_tokens=256,
-        top_p=1,
-        frequency_penalty=0,
-        presence_penalty=0
-    )
-    # todo: Wrap this inside of a  try catch block
-    say(response["choices"][0]["text"])
-    chatStr += f"{response['choices'][0]['text']}\n"
-    return response["choices"][0]["text"]
+
+# def ai(prompt):
+#     openai.api_key = os.getenv("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")
+#     text = f"OpenAI respose for prompt: {prompt} \n *********\n\n"
+#     response = openai.Completion.create(
+#         model="text-davinci-003",
+#         prompt="Write an email to my boss for resignation?",
+#         temperature=0.7,
+#         max_tokens=256,
+#         top_p=1,
+#         frequency_penalty=0,
+#         presence_penalty=0
+#     )
+#     print(response["choices"][0]["text"])
+#     text += response["choices"][0]["text"]
+#     if not os.path.exists("aifiles"):
+#         os.mkdir("aifiles")
+#
+#     with open(f"aifiles/{prompt[0:30]}.txt", "w") as f:
+#         f.write(text)
+#
+#
+# def chat(task):
+#     global chatStr
+#     print(chatStr)
+#     openai.api_key = apikey
+#     chatStr += f"Apurba: {task}\n Jarvis: "
+#     response = openai.Completion.create(
+#         model="text-davinci-003",
+#         prompt=chatStr,
+#         temperature=0.7,
+#         max_tokens=256,
+#         top_p=1,
+#         frequency_penalty=0,
+#         presence_penalty=0
+#     )
+#     # todo: Wrap this inside of a  try catch block
+#     say(response["choices"][0]["text"])
+#     chatStr += f"{response['choices'][0]['text']}\n"
+#     return response["choices"][0]["text"]
+
 
 
 def say(text):
@@ -59,7 +83,7 @@ def takeCommand():
         query = "You said: " + recognized_text
     except sr.UnknownValueError:
         query = "Speech Recognition could not understand audio."
-        # print(" come up again")
+        print(" come up again")
         # say("comme up again")
     except sr.RequestError as e:
         print("Could not request results from Google Speech Recognition service; {0}".format(e))
@@ -90,7 +114,7 @@ def open_l(l_path):
 
 if __name__ == '__main__':
     print('PyCharm')
-    say("how may i help you")
+    say("hello i am your assistant, how may i help you")
     # print("listening....")
     print("Say something...")
     say("Say something...")
@@ -117,6 +141,7 @@ if __name__ == '__main__':
         elif "open VLC" in task:
             l_path = r"C:\Program Files (x86)\VideoLAN\VLC\vlc.exe"
             open_l(l_path)
-
-        else:
-            chat(task)
+        # elif "using chatGPT".lower() in task.lower():
+        #     ai(prompt=task)
+        # else:
+        #     chat(task)
