@@ -10,7 +10,7 @@ import random
 
 
 # def ai(prompt):
-#     openai.api_key = os.getenv("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")
+#     openai.api_key = apikey
 #     text = f"OpenAI respose for prompt: {prompt} \n *********\n\n"
 #     response = openai.Completion.create(
 #         model="text-davinci-003",
