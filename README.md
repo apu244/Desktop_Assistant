@@ -6,5 +6,5 @@ Operation system: Windows\
 Python Version: 3.8.x\
 
 [//]: # (This may be the most platform independent comment)
- [//]: # [plot](./directory_1/directory_2/.../directory_n/plot.png)
+ [//]: # ([plot](./directory_1/directory_2/.../directory_n/plot.png))
 
