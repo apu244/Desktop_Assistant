@@ -1,5 +1,5 @@
 # AI_Desktop_Assistant
-It is a simple AI assistant powered by openai and codewhisperer using python
+It is a simple AI assistant powered by openai using python
 
 **Requirements**\
 Operation system: Windows\
